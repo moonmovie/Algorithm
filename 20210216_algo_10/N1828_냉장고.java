@@ -1,15 +1,9 @@
-package jungol;
+package Jungol;
 
 import java.util.Arrays;
 import java.util.Scanner;
-/*
-4
--15 5
--10 36
-10 73
-27 44
-*/
-public class Main_1828 {
+
+public class N1828_냉장고 {
 	static class Refi implements Comparable<Refi>{
 		int low,high;
 
@@ -21,7 +15,7 @@ public class Main_1828 {
 		@Override
 		public int compareTo(Refi o) {
 			
-			return this.low-o.low;
+			return this.high-o.high;
 		}
 
 		@Override
