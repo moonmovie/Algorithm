@@ -1,0 +1,142 @@
+@font-face{
+    src: url("./font/FontsFree-Net-Billabong.ttf");
+    font-family: "insta";
+}
+@font-face {
+font-family: 'UhBeemysen';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeemysen.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@charset "UTF-8";
+
+body{
+    margin:0;
+    font-family: 'Source Sans Pro', 'Roboto', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+section{
+    background-color: #fafafa;
+    font-family: 'Source Sans Pro', 'Roboto', sans-serif;
+}
+main{
+    margin: 0% 20% 0% 20%;
+    padding: 4% 0% 4% 0%;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    font-family: "insta";
+    font-size: 50px;
+    padding-top: 20px;
+
+}
+.menu{
+    display: flex;
+    list-style: none;
+    /* padding-left: 30px; */
+    padding-left: 0;
+    justify-content: center;
+    font-size: 20px;
+    border-top: solid 1px black;
+    padding-top: 20px;
+
+}
+.menu li{
+    padding-left: 70px;
+    padding-right: 70px;
+    
+}
+.connect{
+    padding-top: 5%;
+    font-size: 60px;
+    color: black;
+}
+.connect i:hover{
+	color: #3A95FF;
+}
+.connect a i:hover{
+    color: #3A95FF;
+}
+.navbar{
+    border-bottom: solid 1px black;
+}
+.box{
+    width: 300px;
+    height: 300px;
+    border-radius:70%;
+    overflow: hidden;
+    background: #bdbdbd;
+    /* margin-left: 10px; */
+}
+.profile{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    
+}
+.sec1{
+    display: flex;
+    justify-content: space-around;
+}
+.info{
+    /* margin-top: 1px; */
+    font-size: 23px;
+}
+
+.connect{
+    display: flex ;
+    justify-content: space-evenly;
+}
+
+.selection_image{
+    width:100%;
+    display:flex;
+}
+
+.thumb {
+    position:relative; 
+    width:100%; 
+    height:100%; 
+    display:inline-block; 
+    margin:1px;
+    /* border:1px solid #eee;
+    outline:1px solid #ddd; */
+    }
+
+.selection_image img {
+    width:100%;
+    height:100%;    
+}
+
+.gallery{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#goal{
+    text-align: center;
+    font-family: "UhBeemysen";
+	padding-bottom: 5%;
+}
+#goal h1{
+	font-size:50px;
+}
+#goal p{
+	font-size:40px;
+}
+#goal p:hover{
+	font-size:50px;
+}
+#playlist h1{
+    text-align: center;
+    font-family: "UhBeemysen";
+    font-size:50px;
+}
+#playlist{
+    padding: 4px;
+
+}
