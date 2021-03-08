@@ -1,0 +1,26 @@
+.main{
+    border: 1px solid black;
+    width: 350px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 20px;
+}
+input{
+    width: 300px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: right;
+    font-size: 20px;
+}
+button{
+    padding: 30px;
+    margin: 2px;
+}
+.buttonarea{
+    display: inline-block;
+    margin-top: 10px;
+}
+.log{
+    position: relative;
+}
