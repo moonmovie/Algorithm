@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<%@ page language="java" contentType="text/xml; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <Users>
+        <user>
+            <id>ssafy</id>
+            <password>1234</password>
+            <name>ssafy</name>
+            <phone>010000000</phone>
+            <email>ssafy1234@ssafy.com</email>
+            <adress>구미</adress>
+        </user>
+         <user>
+            <id>asdf</id>
+            <password>1234</password>
+            <name>asdf</name>
+            <phone>010000000</phone>
+            <email>ssafy1234@ssafy.com</email>
+            <adress>구미</adress>
+        </user>
+         <user>
+            <id>qqqq</id>
+            <password>1234</password>
+            <name>qqqq</name>
+            <phone>010000000</phone>
+            <email>ssafy1234@ssafy.com</email>
+            <adress>구미</adress>
+        </user>
+         <user>
+            <id>rnrn</id>
+            <password>1234</password>
+            <name>rnrn</name>
+            <phone>010000000</phone>
+            <email>ssafy1234@ssafy.com</email>
+            <adress>구미</adress>
+        </user>
+         <user>
+            <id>lolo</id>
+            <password>1234</password>
+            <name>lolo</name>
+            <phone>010000000</phone>
+            <email>ssafy1234@ssafy.com</email>
+            <adress>구미</adress>
+        </user>
+    </Users>
