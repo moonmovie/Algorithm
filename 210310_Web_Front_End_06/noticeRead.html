@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/notice.js"></script>
+	<script src="js/noticeread.js"></script>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin:24px 0;">
+		<a class="navbar-brand" href="javascript:void(0)">SSAFY Notice Borad</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-end" id="navb">
+			<ul class="navbar-nav" id="navul">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Notice</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#myModal"
+						data-backdrop="static">Sign In</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link signup" href="Signup.html">Sign Up</a>
+				</li>
+				
+			</ul>
+		</div>
+	</nav>
+
+    <div class="container">
+		<div class="container" role="main">
+
+			<h2>board Content</h2>
+
+			
+
+			<div class="bg-white rounded shadow-sm " id="noticebody">
+
+				<!-- <div class="board_title"><h4>asdfadfdsfa</h4></div>
+
+				<div class="board_info_box">
+
+					<span class="board_author">adfdsaff,</span><span class="board_date">agdgg</span>
+
+				</div>
+
+				<div class="board_content">dfssdf</div> -->
+
+
+
+			</div>
+
+			
+
+			<div style="margin-top : 20px">
+
+				<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
+
+				<button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
+
+				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
