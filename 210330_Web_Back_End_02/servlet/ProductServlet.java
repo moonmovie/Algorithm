@@ -120,7 +120,7 @@ public class ProductServlet extends HttpServlet {
 			System.out.println(rs);
 			String path = "/productlist.jsp";
 			Product stuff=null;
-			if(rs.next()) {
+			while(rs.next()) {
 				stuff = new Product();
 				stuff.setId(rs.getString("id"));
 				stuff.setName(rs.getString("name"));
@@ -175,7 +175,7 @@ public class ProductServlet extends HttpServlet {
 			System.out.println(rs);
 			String path = "/lastlist.jsp";
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				stuff = new Product();
 				stuff.setId(rs.getString("id"));
 				stuff.setName(rs.getString("name"));
