@@ -49,7 +49,7 @@
 </body>
 <script>
 	$("#list_btn").on("click",()=>{
-		location.href="${root}/goregist"
+		location.href="${root}/"
 	});
 </script>
 </html>

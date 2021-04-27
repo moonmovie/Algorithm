@@ -47,10 +47,7 @@ public class HomeController {
 		System.out.println(rs);
 		return "index";
 	}
-	@GetMapping("/goregist")
-	public String goregist(Product product) {
-		return "index";
-	}
+	
 	@GetMapping("/list")
 	public String list(Model model) {
 		List<Product> list = productservice.selectAll();
