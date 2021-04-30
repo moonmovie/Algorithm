@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.product.repository.ProductRepo">
+
+	<insert id="insert" parameterType="product">
+		insert into productsts (pid, pname, price, des) 
+		values(#{id},#{name},#{price},#{description})
+	</insert>
+	
+	<select id="selectAll" resultType="product">
+		select pid id, pname name, price, des description from productsts
+	
+	</select>
+	
+</mapper>
