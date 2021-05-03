@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <mapper namespace="com.ssafy.book.repository.BookRepo">
+	<select id="selectAll" resultType="book">
+		select * from book;
+	</select>
+	
+	<insert id="insertbook" parameterType="book">
+		insert into book (isbn, title, price, dcpt, author)
+		value(#{isbn},#{title},#{price},#{dcpt},#{author})
+	</insert>
+	
+	<select id="select" parameterType="String"  resultType="book">
+		select * from book where isbn=#{isbn}
+	</select>
+	
+	<update id="updatebook" parameterType="book">
+		update book
+		set title=#{title}, author=#{author}, price=#{price}, dcpt=#{dcpt}
+		where isbn=#{isbn}
+	</update>
+	
+	<delete id="deletebook" parameterType="String">
+		delete from book
+		where isbn=#{isbn}
+	</delete>
+	
+</mapper> -->
+
+<mapper namespace="com.ssafy.product.dao.ProductDao">
+	<select id="selectAll" resultType="product">
+		select * from productsts;
+	</select>
+	
+	<select id="selectOne" parameterType="String" resultType="product">
+		select * from productsts
+		where pid = #{pid};
+	</select>
+	
+	<insert id="insertOne" parameterType="product">
+		insert into productsts (pid, pname, price, des)
+		value(#{pid},#{pname},#{price},#{des})
+	</insert>
+	
+	<update id="updateOne" parameterType="product">
+		update productsts
+		set pid=#{pid}, pname=#{pname}, price=#{price}, des=#{des}
+		where pid=#{pid}
+	</update>
+	
+	<delete id="deleteOne" parameterType="String">
+		delete from productsts
+		where pid=#{pid}
+	</delete>
+</mapper>
+
