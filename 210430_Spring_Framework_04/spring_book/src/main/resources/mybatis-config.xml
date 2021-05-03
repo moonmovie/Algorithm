@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.ssafy.book.dto.User" alias="user" />
+		<typeAlias type="com.ssafy.book.dto.Book" alias="book" />
+	</typeAliases>
+	<!-- <mappers>
+		<mapper resource="member.xml" />
+		<mapper resource="guestbook.xml" />
+	</mappers> -->
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
