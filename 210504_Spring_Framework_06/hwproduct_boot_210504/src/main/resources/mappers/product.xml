@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.product.dao.ProductDao">
+	<select id="selectAll" resultType="product">
+		select * from productsts;
+	</select>
+	
+	<select id="selectOne" parameterType="String" resultType="product">
+		select * from productsts
+		where pid = #{pid};
+	</select>
+	
+	<insert id="insertOne" parameterType="product">
+		insert into productsts (pid, pname, price, des)
+		value(#{pid},#{pname},#{price},#{des})
+	</insert>
+	
+	<update id="updateOne" parameterType="product">
+		update productsts
+		set pid=#{pid}, pname=#{pname}, price=#{price}, des=#{des}
+		where pid=#{pid}
+	</update>
+	
+	<delete id="deleteOne" parameterType="String">
+		delete from productsts
+		where pid=#{pid}
+	</delete>
+</mapper>
+
