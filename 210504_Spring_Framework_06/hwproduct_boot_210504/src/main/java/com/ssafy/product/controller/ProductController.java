@@ -1,10 +1,11 @@
 package com.ssafy.product.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,10 +27,20 @@ public class ProductController {
 	private ProductService productService;
 	
 	@ApiOperation(value="물품목록", notes="물품 <big>전체목록</big>을 반환해 줍니다.")
-	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public List<Product> productlist(){
-		List<Product> list = productService.selectAll();
-		return list;
+	@RequestMapping(value="/list/{page}", method=RequestMethod.GET)
+	public HashMap<String, Object> productlist(@PathVariable("page") int page){
+		Map<String, Integer> mmap = new HashMap<String, Integer>();
+		int perpage = 5;
+		int start = perpage*(page-1); 
+		mmap.put("start", start);
+		mmap.put("end",perpage);
+		
+		List<Product> list = productService.selectAll(mmap);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		map.put("totalpage",productService.totalpage());
+		map.put("perpage",perpage);
+		return map;
 	}
 	@ApiOperation(value="물품등록", notes="물품을 등록합니다.")
 	@RequestMapping(value="/change", method=RequestMethod.POST)

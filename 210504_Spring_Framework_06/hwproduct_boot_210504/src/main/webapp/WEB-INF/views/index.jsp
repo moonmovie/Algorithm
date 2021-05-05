@@ -17,12 +17,15 @@
 		<table class="table table-striped" id="listtable">
 			
 		</table>
+		<div class="d-flex justify-content-center">
+			<ul class="pagination">
+			</ul>
+		</div>
 		<button type="button" id="list_btn" class="btn btn-primary">상품등록</button>
-	</div>
-	<div class="container mt-5" id="product" style="display:none;">
 		
-		<button type="button" id="update_btn" class="btn btn-primary" style="display:none;">상품수정</button>
-		<button type="button" id="delete_btn" class="btn btn-primary" style="display:none;">상품삭제</button>
+	</div>
+	<div class="container" id="product">
+
 	</div>
 </body>
 </html>

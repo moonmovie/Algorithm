@@ -1,6 +1,7 @@
 package com.ssafy.product.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class ProductServiceImpl implements ProductService {
 	private SqlSession sqlsession;
 	
 	@Override
-	public List<Product> selectAll() {
+	public List<Product> selectAll(Map <String, Integer> mmap) {
 		// TODO Auto-generated method stub
-		return sqlsession.getMapper(ProductDao.class).selectAll();
+		return sqlsession.getMapper(ProductDao.class).selectAll(mmap);
 	}
 
 	@Override
@@ -43,6 +44,12 @@ public class ProductServiceImpl implements ProductService {
 	public int insertOne(Product product) {
 		// TODO Auto-generated method stub
 		return sqlsession.getMapper(ProductDao.class).insertOne(product);
+	}
+
+	@Override
+	public int totalpage() {
+		// TODO Auto-generated method stub
+		return sqlsession.getMapper(ProductDao.class).totalpage();
 	}
 
 }

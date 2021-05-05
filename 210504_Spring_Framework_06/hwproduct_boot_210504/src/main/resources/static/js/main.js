@@ -3,7 +3,7 @@ const root = "";
 
 $(document).ready(function () {
     
-    startLoadAjax();
+    startLoadAjax(1);
 
     document.getElementById("list_btn").addEventListener("click",()=>{
         let product = document.getElementById("product");
@@ -49,7 +49,7 @@ $(document).ready(function () {
                 success: function (res) {
                     if(res>=1){
                        document.getElementById("regist").reset();
-                       startLoadAjax();
+                       startLoadAjax(1);
                     }else{
                         alert("다시 시도해주세요");
                     }
@@ -71,15 +71,16 @@ function formTojson(formele) {
     return jsonObj;
 }
 
-function startLoadAjax(){
+function startLoadAjax(page){
     let table = document.getElementById("listtable");
     table.innerHTM="";
     let innerhtml = "";
     $.ajax({
         type: "GET",
-        url: root+"/product/list",
+        url: root+"/product/list/"+page,
               
         success: function (res) {
+        	
             if(res!=""||res!=null){
                 innerhtml+=
                 `
@@ -92,12 +93,13 @@ function startLoadAjax(){
                          <th>설명</th>
                      </tr>
                  </thead>`;
-                 let cnt=1;
-                 res.forEach(ele => {
+                 let idx = (page-1)*res.perpage;
+                 res.list.forEach(ele => {
+                    
                      innerhtml+=
                      `
                      <tr pid="${ele.pid }">
-                         <td>${cnt++}</td>
+                         <td>${++idx}</td>
                          <td>${ele.pid }</td>
                          <td>${ele.pname }</td>
                          <td>${ele.price }</td>
@@ -123,6 +125,7 @@ function startLoadAjax(){
                    trAjax(tr[i].getAttribute("pid"));
                 });
             }
+            pagenation(res.totalpage,res.perpage,page);
         }
     });
 }
@@ -178,7 +181,7 @@ function trAjax(pk){
 //                        	document.getElementById("pname").value="";
 //                        	document.getElementById("price").value="";
 //                        	document.getElementById("des").value="";
-                            startLoadAjax();
+                            startLoadAjax(1);
                         }else{
                              alert("다시 시도해주세요");
                         }
@@ -199,7 +202,7 @@ function trAjax(pk){
 //                        	document.getElementById("pname").value="";
 //                        	document.getElementById("price").value="";
 //                        	document.getElementById("des").value="";
-                            startLoadAjax();
+                            startLoadAjax(1);
                         }else{
                              alert("다시 시도해주세요");
                         }
@@ -220,3 +223,45 @@ function resetval(){
     	arguments[i].value="";
     }
 }
+// 총페이지수, 한페이지당 목록 수, 현재 페이지
+function pagenation(total, per, current){
+	let pagegroup = Math.ceil(current/per);
+	let respage = Math.ceil(total/per);
+    let each =per;
+	let pagenaion = document.getElementsByClassName("pagination")[0];
+	pagenaion.innerHTML="";
+    let i;
+    let htmlIn="";
+    if(pagegroup==1){
+        htmlIn+=`<li class="page-item pre disabled"><a class="page-link">Previous</a></li>`;
+    }else{
+        htmlIn+=`<li class="page-item"><a class="page-link" idx="${(pagegroup*per)-per}">Previous</a></li>`;
+    }
+    if(respage<=per){
+        each=respage;
+    }
+	for(i=((pagegroup-1)*per)+1;i<pagegroup+each;i++){
+        if(i==current){
+            htmlIn+=`<li class="page-item active"><a class="page-link" idx="${i}">${i}</a></li>`;
+        }else{
+            htmlIn+=`<li class="page-item"><a class="page-link" idx="${i}">${i}</a></li>`;
+        }
+		
+	}
+    if(pagegroup==respage || respage<=per){
+        htmlIn+=`<li class="page-item disabled"><a class="page-link">next</a></li>`;
+    }else{
+        htmlIn+=`<li class="page-item next"><a class="page-link" idx="${i+1}">next</a></li>`;
+    }
+    pagenaion.innerHTML=htmlIn;
+
+    let atag = document.getElementsByClassName("page-link");
+
+    for(let j=0;j<atag.length;j++){
+        atag[j].addEventListener("click",()=>{
+            startLoadAjax(atag[j].getAttribute("idx"));
+        });
+    }
+
+}
+
