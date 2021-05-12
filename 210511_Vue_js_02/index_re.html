@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>ssafy hrm</title>
+    <style>
+      *,
+      ::before ::after {
+        box-sizing: inherit;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="text-center">
+      <h1>사원목록</h1>
+    </div>
+
+    <div class="container" id="app">
+      <div class="text-center">
+        <input type="text" v-model="word" />
+        <button @click="searchemp">검색</button>
+      </div>
+      <table class="table table-bordered">
+        <tr :style="appStyle">
+          <th>사원아이디</th>
+          <th>사원명</th>
+          <th>부서</th>
+          <th>직책</th>
+          <th>연봉</th>
+        </tr>
+        <tr is="emp-one" v-for="emp in emplist" :emp="emp"></tr>
+      </table>
+      <div><a href="/hw/register.html">사원등록</a></div>
+    </div>
+  </body>
+
+  <script>
+    Vue.component("emp-one", {
+      props: ["emp"],
+      template: `
+            <tr>
+              <td>{{emp.id}}</td>
+              <td>{{emp.name}}</td>
+              <td>{{emp.department}}</td>
+              <td>{{emp.selectposition}}</td>
+              <td>{{Math.round(((emp.salary*12)*(1+(emp.comission/100)))/10000)}}</td>
+            </tr>
+            `,
+    });
+    new Vue({
+      el: "#app",
+      data: {
+        word: "",
+        emplist: [],
+        searchlist: [],
+        appStyle: {
+          backgroundColor: "cornflowerblue",
+        },
+      },
+      created() {
+        let localStg = localStorage.getItem("board");
+        let list = {
+          total: 0,
+          emp: [],
+        };
+        list = JSON.parse(localStg);
+
+        this.emplist = list.items;
+      },
+      methods: {
+        searchemp() {
+          console.log(this.word);
+          if (this.word != "" || this.word != null) {
+          }
+
+          let localStg = localStorage.getItem("board");
+          let list = {
+            total: 0,
+            items: [],
+          };
+          list = JSON.parse(localStg);
+          console.log(list);
+          this.emplist = [];
+          for (let i = 0; i < list.total; i++) {
+            if (list.items[i].name.indexOf(this.word) == 0) {
+              console.log(list.items[i].name);
+              this.emplist.push(list.items[i]);
+            }
+          }
+        },
+      },
+    });
+  </script>
+</html>
