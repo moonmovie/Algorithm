@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>ssafy hrm</title>
+    <style>
+      *,
+      ::before ::after {
+        box-sizing: inherit;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="text-center">
+      <h1>사원목록</h1>
+    </div>
+
+    <div class="container" id="app">
+      <!-- <search-bar></search-bar> -->
+      <emp-list></emp-list>
+      <reg-href></reg-href>
+    </div>
+  </body>
+
+  <script type="module">
+    import SearchBar from "./module/empListSearch.js";
+    import EmpList from "./module/emplist.js";
+    import RegHref from "./module/registHref.js";
+
+    new Vue({
+      el: "#app",
+      components: { EmpList, RegHref },
+    });
+  </script>
+</html>
